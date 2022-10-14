@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
+import Overview from './components/Overview';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      task: { text: '' },
+      task: { text: '', id: uniqid() },
       tasks: [],
     };
   }
@@ -19,7 +21,7 @@ class App extends Component {
     // we don't use the push method because that wouldl cause an error with altering the state directly.
     this.setState({
       tasks: this.state.tasks.concat(this.state.task),
-      task: { text: '' },
+      task: { text: '', id: uniqid() },
     });
   };
   render() {
@@ -37,6 +39,7 @@ class App extends Component {
           ></input>
           <button type='submit'>Add Task</button>
         </form>
+        <Overview tasks={tasks} />
       </div>
     );
   }
