@@ -1,4 +1,3 @@
-// renders the tasks
 import React from 'react';
 
 const Overview = (props) => {
@@ -6,7 +5,6 @@ const Overview = (props) => {
 
   return (
     <ul>
-      {/* Tasks are mapped to list items */}
       {tasks.map((task) => {
         return <li key={task.id}>{task.text}</li>;
       })}
